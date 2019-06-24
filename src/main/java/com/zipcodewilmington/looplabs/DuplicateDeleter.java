@@ -6,9 +6,27 @@ package com.zipcodewilmington.looplabs;
 public abstract class DuplicateDeleter<T> implements DuplicateDeleterInterface<T> {
     protected T[] array;
 
-    public DuplicateDeleter(T[] intArray) {
+
+
+    DuplicateDeleter(T[] intArray) {
+
         this.array = intArray;
     }
+
+
+    public Integer countOccurences(T valueToCount, T[] toEval) {
+        Integer counter = 0;
+        for (int i = 0; i < toEval.length; i++){
+            if(toEval[i].equals(valueToCount)){
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+
+
+
 
     abstract public T[] removeDuplicates(int maxNumberOfDuplications);
     abstract public T[] removeDuplicatesExactly(int exactNumberOfDuplications);
